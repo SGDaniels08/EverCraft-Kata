@@ -39,13 +39,30 @@ public class Character {
     public int getArmorClass() {
         return armorClass;
     }
-    public void setArmorClass() {
+    public void setArmorClass(int armorClass) {
         this.armorClass = armorClass;
     }
     public int getHitPoints() {
         return hitPoints;
     }
-    public void setHitPoints() {
+    public void setHitPoints(int hitPoints) {
         this.hitPoints = hitPoints;
+    }
+
+    // Other methods
+    public boolean attack(int toHitRoll, Character opponent) {
+        int damage;
+        //Miss
+        if (toHitRoll < opponent.getArmorClass()) { return false; }
+
+        // Hit
+
+        else if (toHitRoll == 20)
+        { damage = 2; }
+        else { damage = 1; }
+
+        int opponentCurrentHP = opponent.getHitPoints();
+        opponent.setHitPoints((opponentCurrentHP - damage));
+        return true;
     }
 }

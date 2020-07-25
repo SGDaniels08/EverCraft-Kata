@@ -49,4 +49,53 @@ public class TestIteration1 {
         assertEquals(5, testCharacter.getHitPoints());
     }
 
+    @Test
+    public void toHitRollBelowOpponentsArmorClassMisses() {
+        // Arrangement
+        Character testCharacter = new Character();
+        Character testOpponent = new Character();
+
+        // Activation and Assertion
+        assertEquals(false, testCharacter.attack(5, testOpponent));
+    }
+
+    @Test
+    public void toHitRollAboveOpponentsArmorClassHits() {
+        // Arrangement
+        Character testCharacter = new Character();
+        Character testOpponent = new Character();
+
+        // Activation and Assertion
+        assertEquals(true, testCharacter.attack(15, testOpponent));
+    }
+
+    @Test
+    public void hitCharacterTakesDamage() {
+        // Arrangement
+        Character testCharacter = new Character();
+        Character testOpponent = new Character();
+
+        // Activation
+        testCharacter.attack(15, testOpponent);
+
+        // Assertion
+        assertEquals(4, testOpponent.getHitPoints());
+    }
+
+    @Test
+    public void criticalHitDoublesDamage() {
+        // Arrangement
+        Character testCharacter = new Character();
+        Character testOpponent = new Character();
+
+        // Activation
+        testCharacter.attack(20, testOpponent);
+
+        // Assertion
+        assertEquals(3, testOpponent.getHitPoints());
+    }
+
+    @Test
+    public void characterHitPointsZeroCharacterDies() {}
+
 }
