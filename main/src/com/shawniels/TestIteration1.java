@@ -31,4 +31,22 @@ public class TestIteration1 {
         assertEquals(Character.Alignment.GOOD, testCharacter.getAlignment());
     }
 
+    @Test
+    public void armorClassDefaultsToTen() {
+        // Arrangement and Activation
+        Character testCharacter = new Character();
+
+        // Assertion
+        assertEquals(10, testCharacter.getArmorClass());
+    }
+
+    @Test
+    public void hitPointsDefaultsToFive() {
+        // Arrangement and Activation
+        Character testCharacter = new Character();
+
+        // Assertion
+        assertEquals(5, testCharacter.getHitPoints());
+    }
+
 }
