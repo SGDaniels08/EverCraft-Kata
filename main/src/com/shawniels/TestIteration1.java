@@ -3,7 +3,7 @@ package com.shawniels;
 import com.shawniels.classes.Character;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class TestIteration1 {
 
@@ -96,6 +96,30 @@ public class TestIteration1 {
     }
 
     @Test
-    public void characterHitPointsZeroCharacterDies() {}
+    public void characterHitPointsNotZeroCharacterAlive() {
+        // Arrangement
+        Character testCharacter = new Character();
+        Character testOpponent = new Character();
 
+        // Activation
+        testCharacter.attack(15, testOpponent);
+
+        // Assertion
+        assertTrue(testOpponent.isAlive());
+    }
+
+    @Test
+    public void characterHitPointsZeroCharacterDies() {
+        // Arrangement
+        Character testCharacter = new Character();
+        Character testOpponent = new Character();
+        testOpponent.setHitPoints(1);
+
+        // Activation
+        testCharacter.attack(20, testOpponent);
+
+        // Assertion
+        assertFalse(testOpponent.isAlive());
+    }
+    
 }

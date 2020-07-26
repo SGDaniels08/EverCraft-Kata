@@ -65,4 +65,9 @@ public class Character {
         opponent.setHitPoints((opponentCurrentHP - damage));
         return true;
     }
+
+    public boolean isAlive() {
+        if (hitPoints < 0) { return false; }
+        else return true;
+    }
 }
